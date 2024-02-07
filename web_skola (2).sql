@@ -20,7 +20,9 @@ SET time_zone = "+00:00";
 --
 -- Databáze: `web_skola`
 --
+CREATE DATABASE IF NOT EXISTS web_skola;
 
+USE web_skola;
 -- --------------------------------------------------------
 
 --
