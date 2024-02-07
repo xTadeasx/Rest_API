@@ -361,7 +361,7 @@ final class PostFacade
         {
             $this->http("HTTP/1.1 401 Unauthorized");
         }
-        return $message."/".$this->make_token($id);
+        return $this->make_token($id);
     }
 // PUT updatne nějakou část tabulky
     public function put_table($table, $id)
