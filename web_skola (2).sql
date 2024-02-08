@@ -201,7 +201,7 @@ CREATE TABLE `workers` (
 --
 
 INSERT INTO `workers` (`id`, `name`, `sur_name`, `title`, `job`, `phone_number`, `email`, `active`, `created_by`, `created_at`, `updated_by`, `updated_at`) VALUES
-(1, 'Tadeas', 'Jahoda', 'Maker', 'Back-end', '725 461 181', 'tadeas.jahoda@sos-jh.cz', 1, 1, '2024-02-05 09:27:03', 1, '2024-02-05 10:17:17'),
+(1, 'Tadeas', 'Jahoda', 'Maker', 'Back-end', '325 121 213', 'tadeas.jahoda@sos-jh.cz', 1, 1, '2024-02-05 09:27:03', 1, '2024-02-05 10:17:17'),
 (2, 'Samuel Daniel', 'Herejk', 'Maker', 'Front-end', '234 234 234', 'daniel.herejk@sos-jh.cz', 1, 1, '2024-02-05 09:27:03', 1, '2024-02-05 09:27:03'),
 (3, 'Tadeas', 'Lojka', 'Friend', 'Manga-maker', '234 131 232', 'filip.lojka@sos-jh.cz', 1, 1, '2024-02-05 09:59:29', 1, '2024-02-05 09:59:29');
 
