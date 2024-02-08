@@ -19,3 +19,7 @@ di:
 	export:
 		parameters: no
 		tags: no
+http:
+	headers:
+		Access-Control-Allow-Headers: 'Content-Type; X-Accept-Content-Type; X-Requested-With'
+		Access-Control-Allow-Origin: '*'
