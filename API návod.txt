@@ -5,25 +5,24 @@ Návod na API pro Dandu:
 
 
 GET:
-  API/<tabulka>/<sloupec.seředit>	Dostaneš všechny věci v tabulce kterou jsi si určil a seřazené podle toho jak jsi si určil. (ASC/DESC)
 
  GET celé tabulky:
-  API/workers/id.ASC 			Dostaneš tabulku workers sežřzenou od nejmenšího id až po největší 
-  API/uzivatele/id.ASC 			Dostaneš tabulku uzivatele seřazenou od nejmenšího id až po největší 
-  API/clanky/id.ASC 			Dostaneš tabulku clanky seřazenou od nejmenšího id až po největší 
-  API/images/id.ASC 			Dostaneš tabulku images seřazenou od nejmenšího id až po největší 
-  API/links/id.ASC 			Dostaneš tabulku links seřazenou od nejmenšího id až po největší
-  API/kategorie/id.ASC			Dostaneš tabulku kategorie seřazenou od nejmenšího id až po největší
-  API/dostupnost/id.ASC			Dostaneš tabulku links seřazenou od nejmenšího id až po největší
+  API/workers		    Dostaneš tabulku workers sežřzenou od nejmenšího id až po největší 
+  API/uzivatele			Dostaneš tabulku uzivatele seřazenou od nejmenšího id až po největší 
+  API/clanky			  Dostaneš tabulku clanky seřazenou od nejmenšího id až po největší 
+  API/images 			  Dostaneš tabulku images seřazenou od nejmenšího id až po největší 
+  API/links 			  Dostaneš tabulku links seřazenou od nejmenšího id až po největší
+  API/kategorie			Dostaneš tabulku kategorie seřazenou od nejmenšího id až po největší
+  API/dostupnost		Dostaneš tabulku links seřazenou od nejmenšího id až po největší
 
  GET řádek z tabulky:
-  API/workers/id/1			Dostaneš řádek s id 1 z tabulky workers
-  API/uzivatele/id/1			Dostaneš řádek s id 1 z tabulky uzivatele
-  API/clanky/id/1			Dostaneš řádek s id 1 z tabulky clanky
-  API/images/id/1			Dostaneš řádek s id 1 z tabulky images
-  API/clanky/id/1			Dostaneš řádek s id 1 z tabulky links
-  API/kategorie/id/1			Dostaneš řádek s id 1 z tabulky kategorie
-  API/dostupnost/id/1			Dostaneš řádek s id 1 z tabulky dostupnost
+  API/workers/1			Dostaneš řádek s id 1 z tabulky workers
+  API/uzivatele/1		Dostaneš řádek s id 1 z tabulky uzivatele
+  API/clanky/1			Dostaneš řádek s id 1 z tabulky clanky
+  API/images/1			Dostaneš řádek s id 1 z tabulky images
+  API/clanky/1			Dostaneš řádek s id 1 z tabulky links
+  API/kategorie/1		Dostaneš řádek s id 1 z tabulky kategorie
+  API/dostupnost/1	Dostaneš řádek s id 1 z tabulky dostupnost
 
 POST:
   API/uzivatele/login			Pošleš údaje na přihlášení.['username, 'password'].

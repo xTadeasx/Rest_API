@@ -6,19 +6,26 @@
 	"license": ["MIT", "BSD-3-Clause", "GPL-2.0", "GPL-3.0"],
 	"require": {
 		"php": ">= 8.0",
-		"nette/application": "^3.1",
-		"nette/bootstrap": "^3.2",
-		"nette/caching": "^3.2",
-		"nette/database": "^3.1",
-		"nette/di": "^3.1",
-		"nette/forms": "^3.1",
-		"nette/http": "^3.2",
-		"nette/mail": "^4.0",
-		"nette/robot-loader": "^4.0",
-		"nette/security": "^3.1",
-		"nette/utils": "^4.0",
-		"latte/latte": "^3.0",
-		"tracy/tracy": "^2.9"
+
+		"contributte/bootstrap": "^0.6.0",
+		"contributte/console": "^0.10.0",
+		"contributte/di": "^0.5.6",
+		"contributte/http": "^0.4.0",
+		"contributte/monolog": "^0.5.0",
+		"contributte/neonizer": "^0.5.0",
+		"contributte/security": "^0.4.0",
+		"contributte/tracy": "^0.6.0",
+		"contributte/utils": "^0.6.0",
+
+		"nettrine/orm": "v0.8.4",
+		"nettrine/dbal": "v0.8.2",
+		"contributte/apitte": "v0.12.1",
+
+		"symfony/serializer": "^6.0.2",
+		"symfony/validator": "^7.0.2",
+		"symfony/property-info": "^6.0.0",
+		"symfony/cache": "^7.0.0",
+		"symfony/property-access": "^7.0"
 	},
 	"require-dev": {
 		"nette/tester": "^2.4",

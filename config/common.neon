@@ -1,22 +1,45 @@
-parameters:
-
-
-application:
-	errorPresenter: Error
-	mapping:
-		*: App\*Module\Presenters\*Presenter
-
-
-latte:
-	strictTypes: yes
-
-
-session:
-	expiration: 14 days
-
+includes:
+    - services.neon
+    - nettrine.neon
 
 di:
-	export:
-		parameters: no
-		tags: no
+	debugger: true
 
+tracy:
+	logSeverity: E_ALL
+	strictMode: yes
+
+extensions:
+    middlewares: Contributte\Middlewares\DI\MiddlewaresExtension
+    resource: Contributte\DI\Extension\ResourceExtension
+    api: Apitte\Core\DI\ApiExtension
+
+resource:
+    resources:
+        App\Controller\:
+            paths: [%appDir%/Controller]
+api:
+    debug: %debugMode%
+    catchException: true # Sets if exception should be catched and transformed into response or rethrown to output (debug only)
+    plugins:
+        Apitte\Middlewares\DI\MiddlewaresPlugin:
+            tracy: true
+            autobasepath: true
+        Apitte\Debug\DI\DebugPlugin:
+            debug:
+                panel: %debugMode%
+                negotiation: %debugMode%
+
+services:
+    - App\Controller\WorkerController
+    - App\Controller\UzivateleController
+    - App\Controller\LinksController
+    - App\Controller\KategorieController
+    - App\Controller\ImagesController
+    - App\Controller\DostupnostController
+    - App\Controller\ClankyController
+    
+    middleware.cors:
+        factory: App\Middleware\CORSMiddleware
+        tags: [middleware: [priority: 200]]
+    api.core.dispatcher: App\Dispatcher\JsonDispatcher

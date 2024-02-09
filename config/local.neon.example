@@ -1,0 +1,8 @@
+parameters:
+		database:
+			driver: pdo_mysql
+			host: localhost
+			dbname: web_skola
+			user: root
+			password: 
+			charset: utf8
