@@ -4,4 +4,3 @@ composer.lock
 /temp/cache
 /vendor
 php_errors.log
-/temp/cache

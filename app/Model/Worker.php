@@ -32,11 +32,33 @@ class Worker {
     protected int $active;
 
 //GET
+
+    /**
+     * @param int $id
+     * @param string $name
+     * @param string $surName
+     * @param string $title
+     * @param string $job
+     * @param string $phoneNumber
+     * @param string $email
+     * @param int $active
+     */
+    public function __construct(string $name, string $surName, string $title, string $job, string $phoneNumber, string $email, int $active)
+    {
+        $this->name = $name;
+        $this->surName = $surName;
+        $this->title = $title;
+        $this->job = $job;
+        $this->phoneNumber = $phoneNumber;
+        $this->email = $email;
+        $this->active = $active;
+    }
+
     public function getId(): int
     {
         return $this->id;
     }
-    
+
     public function getName(): string
     {
         return $this->name;
@@ -46,12 +68,12 @@ class Worker {
     {
         return $this->surName;
     }
-    
+
     public function getTitle(): string
     {
         return $this->title;
     }
-    
+
     public function getJob(): string
     {
         return $this->job;
@@ -66,7 +88,7 @@ class Worker {
     {
         return $this->email;
     }
-    
+
     public function getActive(): int
     {
         return $this->active;
@@ -76,7 +98,7 @@ class Worker {
     {
         $this->id = $id;
     }
-    
+
     public function setName(string $name): void
     {
         $this->name = $name;
@@ -86,17 +108,17 @@ class Worker {
     {
         $this->surName = $surName;
     }
-    
+
     public function setTitle(string $title): void
     {
         $this->title = $title;
     }
-    
+
     public function setJob(string $job): void
     {
         $this->job = $job;
     }
-    
+
     public function setPhoneNumber(string $phoneNumber): void
     {
         $this->phoneNumber = $phoneNumber;

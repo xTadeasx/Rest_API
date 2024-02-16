@@ -38,8 +38,13 @@ services:
     - App\Controller\ImagesController
     - App\Controller\DostupnostController
     - App\Controller\ClankyController
-    
+
     middleware.cors:
         factory: App\Middleware\CORSMiddleware
         tags: [middleware: [priority: 200]]
+    middleware.authenticator:
+        factory: App\Middleware\AuthenticationMiddleware(
+            App\Security\TokenAuthenticator()
+        )
+        tags: [middleware: [priority: 250]]
     api.core.dispatcher: App\Dispatcher\JsonDispatcher
