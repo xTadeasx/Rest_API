@@ -21,7 +21,7 @@ use Nette\Http\IResponse;
  * @Apitte\Path("/workers")
  * @Apitte\Tag("Workers")
  */
-class WorkerController extends BaseController {
+class WorkerController extends PublicController {
 
     private WorkerFacade $workerFacade;
 
