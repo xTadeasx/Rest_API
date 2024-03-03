@@ -16,7 +16,7 @@ use Nette\Application\Responses\TextResponse;
  * @Apitte\Path("/uzivatele")
  * @Apitte\Tag("Uzivatele")
  */
-class UzivateleController extends BaseController {
+class UzivateleController extends PublicController {
 
     private UzivateleFacade $UzivateleFacade;
 

@@ -2,11 +2,13 @@
 
 namespace App\Controller;
 
+use Apitte\Core\UI\Controller\IController;
+use Apitte\Core\Annotation\Controller as Apitte;
 /**
  * @Apitte\Path("/public")
  * @Apitte\Id("public")
  */
-class PublicController extends BaseController
+abstract class PublicController extends BaseController
 {
 
 }

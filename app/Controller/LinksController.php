@@ -16,7 +16,7 @@ use Nette\Application\Responses\TextResponse;
  * @Apitte\Path("/links")
  * @Apitte\Tag("Links")
  */
-class LinksController extends BaseController {
+class LinksController extends PublicController {
 
     private LinksFacade $LinksFacade;
 

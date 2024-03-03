@@ -16,7 +16,7 @@ use Nette\Application\Responses\TextResponse;
  * @Apitte\Path("/clanky")
  * @Apitte\Tag("Clanky")
  */
-class ClankyController extends BaseController {
+class ClankyController extends PublicController {
 
     private ClankyFacade $ClankyFacade;
 

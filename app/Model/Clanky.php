@@ -26,6 +26,8 @@ class clanky {
     protected DateTime $cas_konani;
     /** @ORM\Column(type="string") */
     protected string $text;
+    /** @ORM\Column(type="string") */
+    protected string $img_file_name;
     /** @ORM\Column(type="integer") */
     protected int $active;
 
@@ -58,7 +60,10 @@ class clanky {
     {
         return $this->text;
     }
-
+    public function getImage(): string
+    {
+        return $this->img_file_name;
+    }
     public function getActive(): int
     {
         return $this->active;
@@ -94,7 +99,10 @@ class clanky {
     {
         $this->text = $text;
     }
-
+    public function setImage(string $img_file_name): void
+    {
+        $this->img_file_name = $img_file_name;
+    }
     public function setActive(int $active): void
     {
         $this->active = $active;

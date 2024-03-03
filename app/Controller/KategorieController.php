@@ -16,7 +16,7 @@ use Nette\Application\Responses\TextResponse;
  * @Apitte\Path("/kategorie")
  * @Apitte\Tag("Kategorie")
  */
-class KategorieController extends BaseController {
+class KategorieController extends PublicController {
 
     private KategorieFacade $KategorieFacade;
 

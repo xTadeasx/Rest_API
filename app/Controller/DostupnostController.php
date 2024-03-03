@@ -16,7 +16,7 @@ use Nette\Application\Responses\TextResponse;
  * @Apitte\Path("/dostupnost")
  * @Apitte\Tag("Dostupnost")
  */
-class DostupnostController extends BaseController {
+class DostupnostController extends PublicController {
 
     private DostupnostFacade $DostupnostFacade;
 
