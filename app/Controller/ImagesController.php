@@ -16,7 +16,7 @@ use Nette\Application\Responses\TextResponse;
  * @Apitte\Path("/images")
  * @Apitte\Tag("Images")
  */
-class ImagesController extends BaseController {
+class ImagesController extends PublicController {
 
     private ImagesFacade $ImagesFacade;
 

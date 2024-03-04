@@ -11,12 +11,13 @@ use App\Response\OneClankyResponse;
 use Nette\Application\Request;
 use Nette\Application\Response;
 use Nette\Application\Responses\TextResponse;
+use Nette\Http\IResponse;
 
 /**
  * @Apitte\Path("/clanky")
  * @Apitte\Tag("Clanky")
  */
-class ClankyController extends BaseController {
+class ClankyController extends PublicController {
 
     private ClankyFacade $ClankyFacade;
 
