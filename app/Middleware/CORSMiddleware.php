@@ -12,10 +12,10 @@ class CORSMiddleware implements IMiddleware {
     {
 
         return $response
-            ->withHeader('Access-Control-Allow-Origin', '*')
+            ->withHeader('Access-Control-Allow-Origin', 'http://localhost:3000')
             ->withHeader('Access-Control-Allow-Credentials', 'true')
             ->withHeader('Access-Control-Allow-Methods', '*')
-            ->withHeader('Access-Control-Allow-Headers', '*');
+            ->withHeader('Access-Control-Allow-Headers', 'X-Requested-With, Content-Type, Origin, Cache-Control, Pragma, Authorization, Accept, Accept-Encoding');
     }
 
     public function __invoke(ServerRequestInterface $request, ResponseInterface $response, callable $next): ResponseInterface
