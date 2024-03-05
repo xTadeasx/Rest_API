@@ -8,7 +8,6 @@ class OneUzivateleResponse
 {
     public int $id;
     public string $username;
-    public string $password;
     public string $name;
     public string $surname;
     public string $dostupnost;
@@ -19,7 +18,6 @@ class OneUzivateleResponse
         $self = new self();
         $self->id = $Uzivatele->getId();
         $self->username = $Uzivatele->getUsername();
-        $self->password = $Uzivatele->getPassword();
         $self->name = $Uzivatele->getName();
         $self->surname = $Uzivatele->getSurname();
         $self->dostupnost = $Uzivatele->getDostupnost();
