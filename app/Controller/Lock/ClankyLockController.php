@@ -30,23 +30,4 @@ class ClankyLockController extends LockLockController {
     }
 
 
-    /**
-     * @Apitte\Path("/")
-     * @Apitte\Method("GET")
-     * @return Clanky[]
-     */
-    public function index(ApiRequest $request): array
-    {
-        $arr = $this->ClankyFacade->findAll();
-        return $arr;
-    }
-
-    /**
-     * @Apitte\Path("/{id}")
-     * @Apitte\Method("GET")
-     * */
-    public function getById(ApiRequest $request): OneClankyResponse {
-        $Clanky = $this->ClankyFacade->findOneBy(['id' => $request->getParameter('id')]);
-        return OneClankyResponse::fromModel($Clanky);
-    }
 }

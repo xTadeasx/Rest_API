@@ -27,25 +27,4 @@ class LinksLockController extends LockLockController {
     {
         $this->LinksFacade = $LinksFacade;
     }
-
-
-    /**
-     * @Apitte\Path("/")
-     * @Apitte\Method("GET")
-     * @return Links[]
-     */
-    public function index(ApiRequest $request): array
-    {
-        $arr = $this->LinksFacade->findAll();
-        return $arr;
-    }
-
-    /**
-     * @Apitte\Path("/{id}")
-     * @Apitte\Method("GET")
-     * */
-    public function getById(ApiRequest $request): OneLinksResponse {
-        $Links = $this->LinksFacade->findOneBy(['id' => $request->getParameter('id')]);
-        return OneLinksResponse::fromModel($Links);
-    }
 }

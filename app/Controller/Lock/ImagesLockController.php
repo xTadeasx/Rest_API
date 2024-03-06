@@ -29,23 +29,4 @@ class ImagesLockController extends LockLockController {
     }
 
 
-    /**
-     * @Apitte\Path("/")
-     * @Apitte\Method("GET")
-     * @return Images[]
-     */
-    public function index(ApiRequest $request): array
-    {
-        $arr = $this->ImagesFacade->findAll();
-        return $arr;
-    }
-
-    /**
-     * @Apitte\Path("/{id}")
-     * @Apitte\Method("GET")
-     * */
-    public function getById(ApiRequest $request): OneImagesResponse {
-        $Images = $this->ImagesFacade->findOneBy(['id' => $request->getParameter('id')]);
-        return OneImagesResponse::fromModel($Images);
-    }
 }

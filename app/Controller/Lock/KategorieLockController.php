@@ -23,29 +23,10 @@ class KategorieLockController extends LockLockController {
     /**
      * @param KategorieFacade $KategorieFacade
      */
+
     public function __construct(KategorieFacade $KategorieFacade)
     {
         $this->KategorieFacade = $KategorieFacade;
     }
 
-
-    /**
-     * @Apitte\Path("/")
-     * @Apitte\Method("GET")
-     * @return Kategorie[]
-     */
-    public function index(ApiRequest $request): array
-    {
-        $arr = $this->KategorieFacade->findAll();
-        return $arr;
-    }
-
-    /**
-     * @Apitte\Path("/{id}")
-     * @Apitte\Method("GET")
-     * */
-    public function getById(ApiRequest $request): OneKategorieResponse {
-        $Kategorie = $this->KategorieFacade->findOneBy(['id' => $request->getParameter('id')]);
-        return OneKategorieResponse::fromModel($Kategorie);
-    }
 }

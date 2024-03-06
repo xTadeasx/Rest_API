@@ -28,24 +28,4 @@ class DostupnostLockController extends LockLockController {
         $this->DostupnostFacade = $DostupnostFacade;
     }
 
-
-    /**
-     * @Apitte\Path("/")
-     * @Apitte\Method("GET")
-     * @return Dostupnost[]
-     */
-    public function index(ApiRequest $request): array
-    {
-        $arr = $this->DostupnostFacade->findAll();
-        return $arr;
-    }
-
-    /**
-     * @Apitte\Path("/{id}")
-     * @Apitte\Method("GET")
-     * */
-    public function getById(ApiRequest $request): OneDostupnostResponse {
-        $Dostupnost = $this->DostupnostFacade->findOneBy(['id' => $request->getParameter('id')]);
-        return OneDostupnostResponse::fromModel($Dostupnost);
-    }
 }

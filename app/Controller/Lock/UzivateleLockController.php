@@ -29,23 +29,4 @@ class UzivateleLockController extends LockLockController {
     }
 
 
-    /**
-     * @Apitte\Path("/")
-     * @Apitte\Method("GET")
-     * @return Uzivatele[]
-     */
-    public function index(ApiRequest $request): array
-    {
-        $arr = $this->UzivateleFacade->findAll();
-        return $arr;
-    }
-
-    /**
-     * @Apitte\Path("/{id}")
-     * @Apitte\Method("GET")
-     * */
-    public function getById(ApiRequest $request): OneUzivateleResponse {
-        $Uzivatele = $this->UzivateleFacade->findOneBy(['id' => $request->getParameter('id')]);
-        return OneUzivateleResponse::fromModel($Uzivatele);
-    }
 }

@@ -33,27 +33,6 @@ class WorkerLockController extends LockLockController {
         $this->workerFacade = $workerFacade;
     }
 
-
-    /**
-     * @Apitte\Path("/")
-     * @Apitte\Method("GET")
-     * @return Worker[]
-     */
-    public function index(ApiRequest $request): array
-    {
-        $arr = $this->workerFacade->findAll();
-        return $arr;
-    }
-
-    /**
-     * @Apitte\Path("/{id}")
-     * @Apitte\Method("GET")
-     * */
-    public function getById(ApiRequest $request): OneWorkerResponse {
-        $worker = $this->workerFacade->findOneBy(['id' => $request->getParameter('id')]);
-        return OneWorkerResponse::fromModel($worker);
-    }
-
     /**
      * @Apitte\Path("/create")
      * @Apitte\Method("POST")
