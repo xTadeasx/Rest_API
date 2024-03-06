@@ -28,6 +28,8 @@ class clanky {
     protected string $text;
     /** @ORM\Column(type="string") */
     protected string $img_file_name;
+    /** @ORM\Column(type="string") */
+    protected string $slag;
     /** @ORM\Column(type="integer") */
     protected int $active;
 
@@ -60,10 +62,15 @@ class clanky {
     {
         return $this->text;
     }
-    public function getImage(): string
+    public function getImgfilename(): string
     {
         return $this->img_file_name;
     }
+    public function getSlag(): string
+    {
+        return $this->slag;
+    }
+
     public function getActive(): int
     {
         return $this->active;
@@ -99,9 +106,13 @@ class clanky {
     {
         $this->text = $text;
     }
-    public function setImage(string $img_file_name): void
+    public function setImgfilename(string $img_file_name): void
     {
         $this->img_file_name = $img_file_name;
+    }
+    public function setSlag(string $slag): void
+    {
+        $this->slag = $slag;
     }
     public function setActive(int $active): void
     {

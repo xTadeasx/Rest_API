@@ -13,6 +13,7 @@ class OneclankyResponse
     public DateTime $cas_konani;
     public string $text;
     public string $img_file_name;
+    public string $slag;
     public int $active;
 
     public static function fromModel(clanky $clanky): self {
@@ -23,7 +24,8 @@ class OneclankyResponse
         $self->sub_name = $clanky->getSubName();
         $self->cas_konani = $clanky->getCasKonani();
         $self->text = $clanky->getText();
-        $self->img_file_name = $clanky->getImage();
+        $self->img_file_name = $clanky->getImgfilename();
+        $self->slag = $clanky->getSlag();
         $self->active = $clanky->getActive();
 
         return $self;

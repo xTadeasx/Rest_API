@@ -41,11 +41,6 @@ class Uzivatele {
         return $this->username;
     }
 
-    public function getPassword(): string
-    {
-        return $this->password;
-    }
-
     public function getName(): string
     {
         return $this->name;
