@@ -31,13 +31,20 @@ api:
                 negotiation: %debugMode%
 
 services:
-    - App\Controller\WorkerController
-    - App\Controller\UzivateleController
-    - App\Controller\LinksController
-    - App\Controller\KategorieController
-    - App\Controller\ImagesController
-    - App\Controller\DostupnostController
-    - App\Controller\ClankyController
+    - App\Controller\Public\WorkerPublicController
+    - App\Controller\Public\UzivatelePublicController
+    - App\Controller\Public\LinksPublicController
+    - App\Controller\Public\KategoriePublicController
+    - App\Controller\Public\ImagesPublicController
+    - App\Controller\Public\DostupnostPublicController
+    - App\Controller\Public\ClankyPublicController
+    - App\Controller\Lock\WorkerLockController
+    - App\Controller\Lock\UzivateleLockController
+    - App\Controller\Lock\LinksLockController
+    - App\Controller\Lock\KategorieLockController
+    - App\Controller\Lock\ImagesLockController
+    - App\Controller\Lock\DostupnostLockController
+    - App\Controller\Lock\ClankyLockController
 
     middleware.cors:
         factory: App\Middleware\CORSMiddleware

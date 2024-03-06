@@ -1,6 +1,6 @@
 <?php declare(strict_types=1);
 
-namespace App\Controller;
+namespace App\Controller\Public;
 
 use Apitte\Core\Annotation\Controller as Apitte;
 use Apitte\Core\Exception\Api\ServerErrorException;
@@ -21,7 +21,7 @@ use Nette\Http\IResponse;
  * @Apitte\Path("/workers")
  * @Apitte\Tag("Workers")
  */
-class WorkerController extends PublicController {
+class WorkerPublicController extends PublicPublicController {
 
     private WorkerFacade $workerFacade;
 

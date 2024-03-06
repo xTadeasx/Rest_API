@@ -1,15 +1,14 @@
 <?php
 
-namespace App\Controller;
+namespace App\Controller\Public;
 
 use Apitte\Core\UI\Controller\IController;
 use Apitte\Core\Annotation\Controller as Apitte;
-
 /**
  * @Apitte\Path("/public")
  * @Apitte\Id("public")
  */
-abstract class PublicController extends BaseController
+abstract class PublicPublicController extends BasePublicController
 {
 
 }
