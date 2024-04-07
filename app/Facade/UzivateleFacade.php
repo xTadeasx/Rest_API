@@ -26,4 +26,12 @@ class UzivateleFacade
         }
         return $entity;
     }
+
+    public function get_token(array $criteria): Uzivatele {
+        $entity  = $this->em->getRepository(Uzivatele::class)->findOneBy($criteria);
+        if ($entity === null) {
+            throw new EntityNotFoundException();
+        }
+        return $entity;
+    }
 }

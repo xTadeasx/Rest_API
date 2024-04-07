@@ -48,4 +48,13 @@ class UzivatelePublicController extends PublicPublicController {
         $Uzivatele = $this->UzivateleFacade->findOneBy(['id' => $request->getParameter('id')]);
         return OneUzivateleResponse::fromModel($Uzivatele);
     }
+    /**
+     * @Apitte\Path("/login")
+     * @Apitte\Method("POST")
+     * */
+    public function get_token(ApiRequest $request): OneUzivateleResponse {
+        $password = $_POST['password'];
+        $Uzivatele = $this->UzivateleFacade->findOneBy(['password' => sha1($password)]);
+        return OneUzivateleResponse::fromModel($Uzivatele);
+    }
 }
