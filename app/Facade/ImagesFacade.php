@@ -2,9 +2,11 @@
 
 namespace App\Facade;
 
+use App\Model\Api\Request\ImagesCreateRequest;
 use App\Model\EntityManagerDecorator;
 use App\Model\Exception\Runtime\Database\EntityNotFoundException;
 use App\Model\Images;
+
 
 class ImagesFacade
 {
@@ -25,5 +27,21 @@ class ImagesFacade
             throw new EntityNotFoundException();
         }
         return $entity;
+    }
+    /**
+     * @param ImagesCreateRequest $dto
+     * @return Images
+     */
+    public function create(ImagesCreateRequest $dto): Images
+    {
+        $Images = new Images(
+            $dto->id,
+            $dto->file_name
+        );
+
+        $this->em->persist($Images);
+        $this->em->flush($Images);
+
+        return $Images;
     }
 }

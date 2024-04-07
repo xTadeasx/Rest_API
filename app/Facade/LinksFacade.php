@@ -2,6 +2,7 @@
 
 namespace App\Facade;
 
+use App\Model\Api\Request\LinksCreateRequest;
 use App\Model\EntityManagerDecorator;
 use App\Model\Exception\Runtime\Database\EntityNotFoundException;
 use App\Model\Links;
@@ -25,5 +26,21 @@ class LinksFacade
             throw new EntityNotFoundException();
         }
         return $entity;
+    }
+    /**
+     * @param LinksCreateRequest $dto
+     * @return Links
+     */
+    public function create(LinksCreateRequest $dto): Links
+    {
+        $Links = new Links(
+            $dto->id,
+            $dto->link_name
+        );
+
+        $this->em->persist($Links);
+        $this->em->flush($Links);
+
+        return $Links;
     }
 }

@@ -2,9 +2,12 @@
 
 namespace App\Facade;
 
+use App\Model\Api\Request\UzivateleCreateRequest;
 use App\Model\EntityManagerDecorator;
 use App\Model\Exception\Runtime\Database\EntityNotFoundException;
 use App\Model\Uzivatele;
+
+
 
 class UzivateleFacade
 {
@@ -33,5 +36,25 @@ class UzivateleFacade
             throw new EntityNotFoundException();
         }
         return $entity;
+    }
+    /**
+     * @param UzivateleCreateRequest $dto
+     * @return Uzivatele
+     */
+    public function create(UzivateleCreateRequest $dto): Uzivatele
+    {
+        $Uzivatele = new Uzivatele(
+            $dto->username,
+            $dto->password,
+            $dto->name,
+            $dto->sur_name,
+            $dto->dostupno,
+            $dto->active
+        );
+
+        $this->em->persist($Uzivatele);
+        $this->em->flush($Uzivatele);
+
+        return $Uzivatele;
     }
 }
