@@ -9,7 +9,6 @@ use Apitte\Core\Http\ApiResponse;
 use App\Facade\UzivateleFacade;
 use App\Model\Api\Request\UzivateleCreateRequest;
 use App\Model\Uzivatele;
-use App\Repository\UzivateleRepository;
 use App\Response\OneUzivateleResponse;
 use Doctrine\DBAL\Exception\DriverException;
 use Nette\Application\Request;

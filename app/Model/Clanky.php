@@ -34,6 +34,29 @@ class clanky {
     protected int $active;
 
 //GET
+    /**
+     * @param int $id
+     * @param string $kategorie
+     * @param string $name
+     * @param string $sub_name
+     * @param DateTime $cas_konani
+     * @param string $text
+     * @param string $img_file_name
+     * @param string $slag
+     * @param int $active
+     */
+    public function __construct(string $kategorie, string $name, string $sub_name, DateTime $cas_konani, string $text, string $img_file_name, string $slag, int $active)
+    {
+        $this->kategorie = $kategorie;
+        $this->name = $name;
+        $this->sub_name = $sub_name;
+        $this->cas_konani = $cas_konani;
+        $this->text = $text;
+        $this->img_file_name = $img_file_name;
+        $this->slag = $slag;
+        $this->active = $active;
+
+    }
     public function getId(): int
     {
         return $this->id;

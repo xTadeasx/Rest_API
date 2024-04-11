@@ -19,6 +19,14 @@ class Dostupnost {
     protected string $name;
 
 //GET
+    /**
+     * @param int $id
+     * @param string $name
+     */
+    public function __construct(string $name)
+    {
+        $this->name= $name;
+    }
     public function getId(): int
     {
         return $this->id;

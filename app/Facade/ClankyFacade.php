@@ -37,10 +37,10 @@ class ClankyFacade
         $clanky = new Clanky(
             $dto->kategorie,
             $dto->name,
-            $dto->sub_name,
-            $dto->cas_konani,
+            $dto->subName,
+            $dto->casKonani,
             $dto->text,
-            $dto->img_file_name,
+            $dto->imgFileName,
             $dto->slag,
             $dto->active
         );

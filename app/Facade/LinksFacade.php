@@ -34,8 +34,7 @@ class LinksFacade
     public function create(LinksCreateRequest $dto): Links
     {
         $Links = new Links(
-            $dto->id,
-            $dto->link_name
+            $dto->linkName
         );
 
         $this->em->persist($Links);

@@ -20,6 +20,16 @@ class Links {
     protected string $link_name;
 
 //GET
+
+    /**
+     * @param int $id
+     * @param string $link_name
+     */
+    public function __construct(string $link_name)
+    {
+        $this->link_name= $link_name;
+
+    }
     public function getId(): int
     {
         return $this->id;

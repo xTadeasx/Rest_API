@@ -24,6 +24,19 @@ class Kategorie {
     protected int $active;
 
 //GET
+    /**
+     * @param int $id
+     * @param string $name
+     * @param string $sub_kategori_to
+     * @param int $active
+     */
+    public function __construct(string $name, string $sub_kategori_to, int $active)
+    {
+        $this->name= $name;
+        $this->sub_kategori_to= $sub_kategori_to;
+        $this->active= $active;
+
+    }
     public function getId(): int
     {
         return $this->id;

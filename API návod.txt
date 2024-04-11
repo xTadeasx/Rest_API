@@ -1,86 +1,48 @@
+Czech
+
 Návod na API:
 <table>	můžeš dát jakýkoliv table
 <id>	můžeš dát jakékoliv id
 
 GET:
  GET celé tabulky:
-  API/public/workers		    Dostaneš tabulku workers sežřzenou od nejmenšího id až po největší
-  API/public/uzivatele			Dostaneš tabulku uzivatele seřazenou od nejmenšího id až po největší
-  API/public/clanky			    Dostaneš tabulku clanky seřazenou od nejmenšího id až po největší
-  API/public/images 			Dostaneš tabulku images seřazenou od nejmenšího id až po největší
-  API/public/links 			    Dostaneš tabulku links seřazenou od nejmenšího id až po největší
-  API/public/kategorie			Dostaneš tabulku kategorie seřazenou od nejmenšího id až po největší
-  API/public/dostupnost		    Dostaneš tabulku links seřazenou od nejmenšího id až po největší
+  www/api/public/<table>		    Dostaneš tabulku <table>
 
  GET řádek z tabulky:
-  API/public/workers/1			Dostaneš řádek s id 1 z tabulky workers
-  API/public/uzivatele/1		Dostaneš řádek s id 1 z tabulky uzivatele
-  API/public/clanky/1			Dostaneš řádek s id 1 z tabulky clanky
-  API/public/images/1			Dostaneš řádek s id 1 z tabulky images
-  API/public/clanky/1			Dostaneš řádek s id 1 z tabulky links
-  API/public/kategorie/1		Dostaneš řádek s id 1 z tabulky kategorie
-  API/public/dostupnost/1	    Dostaneš řádek s id 1 z tabulky dostupnost
+  www/api/public/<table>/<id>		Dostaneš řádek kde id = <id> z tabulky <table>
 
 POST:
-  API/uzivatele/login			Pošleš údaje na přihlášení.['username, 'password'].
+  www/api/public/uzivatele/login	Pošleš údaje na přihlášení.['password'].
 
-Pro všechno pod tímto textem POTŘEBA ODESLAT ['HTTP_AUTHORIZATION'] v headru jeho value dostaneš po přihlášení:
 
+!!!!!!!!!!!!!!
+ Pro všechno pod tímto textem POTŘEBA ODESLAT ['AUTHORIZATION'] v headru jeho value obdrženo po přihlášení:
+!!!!!!!!!!!!!!
 POST:
-  Dostupnost(1,2):
-    API/workers				Vytvoříš pracovníka je třeba poslat ['name','sur_name','title','job','phone_number','email'].
-    API/uzivatele			Vytvoří uživatele je třeba ['username','password','name','sur_name', 'dostupnost'].
-    API/clanky				Vytvoří clanek je třeba ['kategorie','name','sub_name','cas_konani'].
-    API/images				Vytvoří obrázek je třeba ['file_name'].
-    API/links				Vytvoří link je třeba ['link_name'].
-    API/kategorie			Vytvoří kategorii je třeba ['name', 'sub_kategorie'].
-  Dostupnost(3):
-    API/clanky				Vytvoří clanek je třeba ['kategorie','name','sub_name','cas_konani'].
-    API/images				Vytvoří obrázek je třeba ['file_name'].
-    API/links				Vytvoří link je třeba ['link_name'].
-
+    !!!!!!!!!!!!!
+    nevím jak to front-end musí poslat ale při použití aplikace Postman je potřeba informace odeslat v body jako raw formát s touto strukturou:
+        {
+          "name": "Tadeáš",
+          "surName": "Jahoda",
+          "active": 1
+        }
+        Pouze sloupce 'active','dostupnost' a 'kategorie' je int vše ostatní je string.
+    !!!!!!!!!!!!!
+    www/api/lock/workers/create		Vytvoříš pracovníka je třeba poslat ['name','surName','title','job','phoneNumber','email', 'active'].
+    www/api/lock/uzivatele/create	Vytvoří uživatele je třeba ['username','password','name','surName', 'dostupnost','active'].
+    www/api/lock/clanky/create		Vytvoří clanek je třeba ['kategorie','name','sub_name','cas_konani', 'text', 'img_file_name','slag','active'].
+    www/api/lock/images/create		Vytvoří obrázek je třeba ['file_name'].
+    www/api/lock/links/create		Vytvoří link je třeba ['link_name'].
+    www/api/lock/kategorie/create	Vytvoří kategorii je třeba ['name', 'sub_kategorie', 'active'].
+    Do tabulky 'Dostupnost' nejde přidávat
 
 PUT:
-  // co se nepošle tak se nahraje znovu z databáze
-  Dostupnost(1,2):
-    API/workers/0/<id>			Update řádku v tabulce workers['name','sur_name','title','job','phone_number','email'].
-    API/uzivatele/0/<id>		Update řádku v tabulce uzivatele['username','password','sur_name','dostupnost'].
-    API/clanky/0/<id>			Update řádku v tabulce clanky['kategorie','name','sub_name','cas_konani','text'].
-    API/images/0/<id>			Update řádku v tabulce images['file_name'].
-    API/links/0/<id>			Update řádku v tabulce links['link_name'].
-    API/kategorie/0/<id>		Update řádku v tabulce kategorie['link_name'].
-  Dostupnost(3):
-    API/clanky/0/<id>			Update řádku v tabulce clanky['kategorie','name','sub_name','cas_konani','text'].
-    API/images/0/<id>			Update řádku v tabulce images['file_name'].
-    API/links/0/<id>			Update řádku v tabulce links['name', 'sub_kategorie'].
 
+    Kvůli obtížnosti 3 verze tato funkce momentálně není plně provozní.
 
 DELETE:
-  Dostupnost(1,2):
-    API/workers/0/<id>			Deaktivuje pracovníka 
-    API/uzivatele/0/<id>		Deaktivuje uzivatele
-    API/clanky/0/<id>			Deaktivuje clanek
-    API/kategorie/0/<id>		Deaktivuje kategorii 
-    API/workers/1/<id>			Aktivuje pracovníka
-    API/uzivatele/1/<id> 		Aktivuje uzivatele
-    API/clanky/1/<id>			Aktivuje clanek
-    API/kategorie/1/<id>		Aktivuje kategorii
-  Dostupnost(3):
-    API/clanky/0/<id>			Deaktivuje clanek 
-    API/clanky/1/<id>			Aktivuje clanek 
-API/(kategorie,dostupnost)		Je zakázáno to deaktivovat a aktivovat
 
-
-to do list:
-workers{	clanky{		uzivatele{	kategorie{	images{		links{		dostupnost{	Login 1
-get	1	get	1	get	1	get	1	get	1	get	1	get	1	token 1
-get/id	1	get/id	1	get/id	1	get/id	1	get/id	1	get/id	1	get/id	1	dostupnost 1
-post	1	post	1	post	1	post	1	post	1	post	1	}
-put	1	put	1	put	1	put	1	put	1	put	1
-delete	1	delete	1	}		}		}		}
-activate1	activate1				
-}		}						
-
+    Kvůli obtížnosti 3 verze tato funkce momentálně není plně provozní.
 
 
 

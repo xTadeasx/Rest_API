@@ -31,6 +31,25 @@ class Uzivatele {
     protected string $token;
     
 //GET
+    /**
+     * @param int $id
+     * @param string $username
+     * @param string $password
+     * @param string $name
+     * @param string $sur_name
+     * @param int $dostupnost
+     * @param int $active
+     */
+    public function __construct(string $username, string $password, string $name, string $sur_name, int $dostupnost, int $active)
+    {
+        $this->username = $username;
+        $this->password = $password;
+        $this->name = $name;
+        $this->sur_name = $sur_name;
+        $this->dostupnost = $dostupnost;
+        $this->active = $active;
+    }
+
     public function getId(): int
     {
         return $this->id;
@@ -92,7 +111,7 @@ class Uzivatele {
         $this->sur_name = $sur_name;
     }
 
-    public function setDostupnost(string $dostupnost): void
+    public function setDostupnost(int $dostupnost): void
     {
         $this->dostupnost = $dostupnost;
     }

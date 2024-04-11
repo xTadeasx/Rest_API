@@ -7,7 +7,7 @@ class UzivateleCreateRequest {
     public string $username;
     public string $password;
     public string $name;
-    public string $sur_name;
+    public string $surName;
     public int $dostupnost;
     public int $active;
 }

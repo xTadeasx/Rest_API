@@ -1,15 +1,15 @@
 <?php
 
 namespace App\Model\Api\Request;
-
+use DateTime;
 class ClankyCreateRequest {
 
     public int $kategorie;
     public string $name;
-    public string $sub_name;
-    public string $cas_konani;
+    public string $subName;
+    public DateTime $casKonani;
     public string $text;
-    public string $img_file_name;
+    public string $imgFileName;
     public string $slag;
     public int $active;
 }

@@ -47,8 +47,8 @@ class UzivateleFacade
             $dto->username,
             $dto->password,
             $dto->name,
-            $dto->sur_name,
-            $dto->dostupno,
+            $dto->surName,
+            $dto->dostupnost,
             $dto->active
         );
 

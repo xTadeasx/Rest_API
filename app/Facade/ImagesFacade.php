@@ -35,8 +35,7 @@ class ImagesFacade
     public function create(ImagesCreateRequest $dto): Images
     {
         $Images = new Images(
-            $dto->id,
-            $dto->file_name
+            $dto->fileName
         );
 
         $this->em->persist($Images);

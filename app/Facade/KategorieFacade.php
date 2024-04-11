@@ -34,9 +34,8 @@ class KategorieFacade
     public function create(KategorieCreateRequest $dto): Kategorie
     {
         $Kategorie = new Kategorie(
-            $dto->id,
             $dto->name,
-            $dto->sub_kategori_to,
+            $dto->subKategoriTo,
             $dto->active,
         );
 

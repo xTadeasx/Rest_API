@@ -20,6 +20,15 @@ class Images {
     protected string $file_name;
 
 //GET
+    /**
+     * @param int $id
+     * @param string $file_name
+     */
+    public function __construct(string $file_name)
+    {
+        $this->file_name= $file_name;
+
+    }
     public function getId(): int
     {
         return $this->id;

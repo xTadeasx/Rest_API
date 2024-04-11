@@ -2,3 +2,4 @@
 
 ### 1. 
  - copy local.neon.example to local.neon with proper db connection, depends on your local environment
+ - read "API návod.txt"

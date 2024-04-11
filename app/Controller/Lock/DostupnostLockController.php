@@ -32,22 +32,5 @@ class DostupnostLockController extends LockLockController {
     {
         $this->DostupnostFacade = $DostupnostFacade;
     }
-    /**
-     * @Apitte\Path("/create")
-     * @Apitte\Method("POST")
-     * @Apitte\RequestBody(entity="App\Model\Api\Request\DostupnostCreateRequest")
-     */
-    public function createDostupnost(ApiRequest $request, ApiResponse $response): ApiResponse {
-        /** @var DostupnostCreateRequest $dto */
-        $dto = $request->getParsedBody();
-        try {
-            $this->DostupnostFacade->create($dto);
-            return $response->withStatus(IResponse::S201_Created)
-                ->withHeader('Content-Type', 'application/json');
-        } catch (DriverException $e) {
-            throw ServerErrorException::create()
-                ->withMessage('Cannot create Dostupnost')
-                ->withPrevious($e);
-        }
-    }
+
 }
