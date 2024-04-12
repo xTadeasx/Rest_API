@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Počítač: 127.0.0.1
--- Vytvořeno: Stř 07. úno 2024, 11:49
+-- Vytvořeno: Pát 12. dub 2024, 08:05
 -- Verze serveru: 10.4.32-MariaDB
 -- Verze PHP: 8.2.12
 
@@ -21,13 +21,12 @@ SET time_zone = "+00:00";
 -- Databáze: `web_skola`
 --
 CREATE DATABASE IF NOT EXISTS web_skola;
-
-USE web_skola;
 -- --------------------------------------------------------
 
 --
 -- Struktura tabulky `clanky`
 --
+USE web_skola;
 
 CREATE TABLE `clanky` (
   `id` int(11) NOT NULL,
@@ -36,6 +35,8 @@ CREATE TABLE `clanky` (
   `sub_name` varchar(255) DEFAULT NULL,
   `cas_konani` datetime DEFAULT NULL,
   `text` varchar(255) DEFAULT NULL,
+  `img_file_name` varchar(255) NOT NULL,
+  `slag` varchar(255) NOT NULL,
   `active` tinyint(1) DEFAULT 1,
   `created_by` int(11) DEFAULT NULL,
   `created_at` datetime DEFAULT current_timestamp(),
@@ -47,11 +48,12 @@ CREATE TABLE `clanky` (
 -- Vypisuji data pro tabulku `clanky`
 --
 
-INSERT INTO `clanky` (`id`, `kategorie`, `name`, `sub_name`, `cas_konani`, `text`, `active`, `created_by`, `created_at`, `updated_by`, `updated_at`) VALUES
-(1, 1, 'Den otevřených dveří', 'toto je ohledně dnu otevřených dveří', '2024-02-23 09:23:25', 'tento je text ohledně dnu otevřených dveří', 1, 1, '2024-02-05 09:24:41', 2, '2024-02-05 10:24:16'),
-(2, 1, 'Den otevřených dveří', 'toto je ohledně dnu otevřených dveří', '2024-02-23 09:23:25', 'tento je text ohledně dnu otevřených dveří', 1, 1, '2024-02-05 09:24:41', 1, '2024-02-05 09:24:41'),
-(3, 1, 'Tadeas', 'test', '2024-04-23 08:23:12', 'tady bude text', 1, 1, '2024-02-05 10:01:50', 1, '2024-02-05 10:01:50'),
-(4, 1, 'Tadeas', 'test', '2024-04-23 08:23:12', 'tady bude text', 1, 2, '2024-02-05 10:09:59', 2, '2024-02-05 10:09:59');
+INSERT INTO `clanky` (`id`, `kategorie`, `name`, `sub_name`, `cas_konani`, `text`, `img_file_name`, `slag`, `active`, `created_by`, `created_at`, `updated_by`, `updated_at`) VALUES
+(1, 1, 'Den otevřených dveří', 'toto je ohledně dnu otevřených dveří', '2024-02-23 09:23:25', 'tento je text ohledně dnu otevřených dveří', '', '', 1, 1, '2024-02-05 09:24:41', 2, '2024-02-05 10:24:16'),
+(2, 1, 'Den otevřených dveří', 'toto je ohledně dnu otevřených dveří', '2024-02-23 09:23:25', 'tento je text ohledně dnu otevřených dveří', '', '', 1, 1, '2024-02-05 09:24:41', 1, '2024-02-05 09:24:41'),
+(3, 1, 'Tadeas', 'test', '2024-04-23 08:23:12', 'tady bude text', '', '', 1, 1, '2024-02-05 10:01:50', 1, '2024-02-05 10:01:50'),
+(4, 1, 'Tadeas', 'test', '2024-04-23 08:23:12', 'tady bude text', '', '', 1, 2, '2024-02-05 10:09:59', 2, '2024-02-05 10:09:59'),
+(5, 1, 'Filip', 'Aloha', '2024-02-23 09:23:25', 'dawdw', 'dawdawd', 'neexistuje', 1, NULL, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -122,7 +124,8 @@ CREATE TABLE `kategorie` (
 INSERT INTO `kategorie` (`id`, `name`, `sub_kategori_to`, `active`, `created_by`, `created_at`, `updated_by`, `updated_at`) VALUES
 (1, 'Activity', 'main', 1, 1, '2024-02-05 09:21:09', 1, '2024-02-05 10:23:09'),
 (2, 'Bakalář', 'main', 1, 1, '2024-02-05 09:21:09', 1, '2024-02-05 09:21:09'),
-(3, 'Tadeas', 'text', 1, 1, '2024-02-05 10:08:03', 1, '2024-02-05 10:08:03');
+(3, 'Tadeas', 'text', 1, 1, '2024-02-05 10:08:03', 1, '2024-02-05 10:08:03'),
+(4, 'Filip', 'main', 1, NULL, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -173,7 +176,9 @@ CREATE TABLE `uzivatele` (
 INSERT INTO `uzivatele` (`id`, `username`, `password`, `name`, `sur_name`, `dostupnost`, `active`, `token`) VALUES
 (1, 'Tadeas', '40bd001563085fc35165329ea1ff5c5ecbdbbeef', 'Tadeáš', 'Jahoda', 1, 1, '2977fcc5c52847faf021dc860005421b89f72fa8'),
 (2, 'Filip', '40bd001563085fc35165329ea1ff5c5ecbdbbeef', 'Lojka', 'Lojka', 3, 1, 'e31ee28fba393a2792448269b3fb0784a7a1068f'),
-(3, 'Tadeas', '40bd001563085fc35165329ea1ff5c5ecbdbbeef', 'Tadeas', 'Lojka', 3, 1, NULL);
+(3, 'Tadeas', '40bd001563085fc35165329ea1ff5c5ecbdbbeef', 'Tadeas', 'Lojka', 3, 1, NULL),
+(10, 'Filip', '123', 'Filip', 'Lojka', 1, 1, NULL),
+(11, 'Filip', '123', 'Filip', 'Lojka', 1, 1, NULL);
 
 -- --------------------------------------------------------
 
@@ -201,9 +206,15 @@ CREATE TABLE `workers` (
 --
 
 INSERT INTO `workers` (`id`, `name`, `sur_name`, `title`, `job`, `phone_number`, `email`, `active`, `created_by`, `created_at`, `updated_by`, `updated_at`) VALUES
-(1, 'Tadeas', 'Jahoda', 'Maker', 'Back-end', '325 121 213', 'tadeas.jahoda@sos-jh.cz', 1, 1, '2024-02-05 09:27:03', 1, '2024-02-05 10:17:17'),
+(1, 'Tadeas', 'Jahoda', 'Maker', 'Back-end', '725 461 181', 'tadeas.jahoda@sos-jh.cz', 1, 1, '2024-02-05 09:27:03', 1, '2024-02-05 10:17:17'),
 (2, 'Samuel Daniel', 'Herejk', 'Maker', 'Front-end', '234 234 234', 'daniel.herejk@sos-jh.cz', 1, 1, '2024-02-05 09:27:03', 1, '2024-02-05 09:27:03'),
-(3, 'Tadeas', 'Lojka', 'Friend', 'Manga-maker', '234 131 232', 'filip.lojka@sos-jh.cz', 1, 1, '2024-02-05 09:59:29', 1, '2024-02-05 09:59:29');
+(3, 'Tadeas', 'Lojka', 'Friend', 'Manga-maker', '234 131 232', 'filip.lojka@sos-jh.cz', 1, 1, '2024-02-05 09:59:29', 1, '2024-02-05 09:59:29'),
+(4, 'Tadeas', 'Jahoda', 'Bc.', 'back-end', '123', 'jahoda@jahoda', 1, NULL, NULL, NULL, NULL),
+(5, 'Tadeas', 'Jahoda', 'Bc.', 'back-end', '123', 'jahoda@jahoda', 1, NULL, NULL, NULL, NULL),
+(6, 'Tadeas', 'Jahoda', 'Bc.', 'back-end', '123', 'jahoda@jahoda', 1, NULL, NULL, NULL, NULL),
+(7, 'Tadeas', 'Jahoda', 'Bc.', 'back-end', '123', 'jahoda@jahoda', 1, NULL, NULL, NULL, NULL),
+(8, 'Filip', 'Jahoda', 'Mgr.', 'back-end', '123', 'jahoda@seznam.cz', 1, NULL, NULL, NULL, NULL),
+(9, 'Filip', 'Jahoda', 'Mgr.', 'back-end', '123', 'jahoda@seznam.cz', 1, NULL, NULL, NULL, NULL);
 
 --
 -- Indexy pro exportované tabulky
@@ -271,7 +282,7 @@ ALTER TABLE `workers`
 -- AUTO_INCREMENT pro tabulku `clanky`
 --
 ALTER TABLE `clanky`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT pro tabulku `dostupnost`
@@ -283,31 +294,31 @@ ALTER TABLE `dostupnost`
 -- AUTO_INCREMENT pro tabulku `images`
 --
 ALTER TABLE `images`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT pro tabulku `kategorie`
 --
 ALTER TABLE `kategorie`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT pro tabulku `links`
 --
 ALTER TABLE `links`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT pro tabulku `uzivatele`
 --
 ALTER TABLE `uzivatele`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT pro tabulku `workers`
 --
 ALTER TABLE `workers`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- Omezení pro exportované tabulky
