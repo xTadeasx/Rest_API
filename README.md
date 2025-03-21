@@ -1,1 +1,1 @@
-
+Read "API návod.txt"
