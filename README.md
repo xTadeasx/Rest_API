@@ -1,1 +1,0 @@
-Read "API návod.txt"
